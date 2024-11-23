@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil - PT Nusantara Sejahtera</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .profile-container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .profile-container h3 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-weight: bold;
+    }
+    .btn-profile {
+      background: #007bff;
+      color: white;
+      border: none;
+    }
+    .btn-profile:hover {
+      background: #0056b3;
+    }
+    footer {
+      background: #212529;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+    }
+  </style>
+  <script>
+    // Cek status login saat halaman dimuat
+    window.onload = function() {
+      const loggedIn = localStorage.getItem("loggedIn");
+      const username = localStorage.getItem("userUsername");
+      const email = localStorage.getItem("userEmail");
+
+      if (!loggedIn) {
+        // Jika belum login, arahkan ke halaman login
+        window.location.href = "login.html";
+      } else {
+        // Tampilkan informasi pengguna
+        document.getElementById("username").innerText = username;
+        document.getElementById("email").innerText = email;
+      }
+    }
+
+    // Fungsi logout
+    function logout() {
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("userUsername");
+      localStorage.removeItem("userEmail");
+      window.location.href = "login.html"; // Arahkan ke halaman login setelah logout
+    }
+
+    // Fungsi edit profil (jika ada)
+    function editProfile() {
+      alert("Fitur edit profil akan datang segera.");
+    }
+  </script>
+</head>
+<body>
+
+  <div class="profile-container">
+    <h3>Profil Pengguna</h3>
+
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <p id="username">Loading...</p>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <p id="email">user@example.com</p>
+    </div>
+
+    <!-- Tombol Edit Profil (Jika ingin dikembangkan di masa depan) -->
+    <div class="mb-3">
+      <button class="btn btn-outline-primary w-100" onclick="editProfile()">Edit Profil</button>
+    </div>
+
+    <!-- Tombol Logout -->
+    <div class="mb-3">
+      <button class="btn btn-profile w-100" onclick="logout()">Keluar</button>
+    </div>
+  </div>
+
+  <footer>
+    ©Copyright by 22552011034_abdulazis_TIF RP 22 CNS
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
